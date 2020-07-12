@@ -1,6 +1,6 @@
 # snack_bar_presenter
 
-Provider easy and flexible way to show SnackBar
+Provide easy and flexible way to show SnackBar. Simple text, undo, and error style are supported.
 
 
 . | . | .
