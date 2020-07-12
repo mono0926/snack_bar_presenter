@@ -21,6 +21,7 @@ dependencies:
   state_notifier:
   flutter_hooks:
   recase:
+  gap:
   snack_bar_presenter:
     path: ..
 dev_dependencies:

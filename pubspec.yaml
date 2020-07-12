@@ -1,6 +1,6 @@
 name: snack_bar_presenter
 description: Provider easy and flexible way to show SnackBar
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/mono0926/snack_bar_presenter
 environment:
   sdk: ">=2.5.0 <3.0.0"

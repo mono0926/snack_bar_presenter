@@ -27,4 +27,28 @@ mixin SnackBarMixin {
   ) {
     return snackBarPresenter.show(snackBar);
   }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showUndoSnackBar(
+    String text, {
+    @required VoidCallback onUndo,
+    Color undoButtonColor,
+    SnackBarL10n l10n = const SnackBarL10n(),
+  }) {
+    return snackBarPresenter.showUndo(
+      text,
+      onUndo: onUndo,
+      undoButtonColor: undoButtonColor,
+      l10n: l10n,
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showErrorSnackBar(
+    dynamic error, {
+    SnackBarL10n l10n = const SnackBarL10n(),
+  }) {
+    return snackBarPresenter.showError(
+      error,
+      l10n: l10n,
+    );
+  }
 }

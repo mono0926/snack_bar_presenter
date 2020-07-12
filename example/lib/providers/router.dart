@@ -1,5 +1,6 @@
 import 'package:example/home_page.dart';
 import 'package:example/pages/basic_page.dart';
+import 'package:example/pages/list_detail_page/grid_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,6 +12,7 @@ class _Router {
   final Map<String, WidgetBuilder> pushRoutes = {
     HomePage.routeName: (_) => const HomePage(),
     BasicPage.routeName: (_) => const BasicPage(),
+    GridPage.routeName: (_) => const GridPage(),
   };
 
   Route onGenerateRoute(RouteSettings settings) {
@@ -38,5 +40,6 @@ class PageInfo {
 
   static List<PageInfo> get all => [
         BasicPage.routeName,
+        GridPage.routeName,
       ].map((rn) => PageInfo(routeName: rn)).toList();
 }

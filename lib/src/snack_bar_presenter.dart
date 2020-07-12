@@ -7,6 +7,17 @@ final snackBarPresenterProvider = Provider((_) => SnackBarPresenter());
 class SnackBarPresenter {
   final _scaffoldKeys = <GlobalKey<ScaffoldState>>[];
 
+  ScaffoldState get scaffoldState {
+    if (_scaffoldKeys.isEmpty) {
+      assert(false, '_scaffoldKeys should not be empty');
+      return null;
+    }
+    // Show SnackBar by using last ScaffoldKey
+    return _scaffoldKeys.last.currentState;
+  }
+
+  BuildContext get context => scaffoldState.context;
+
   VoidCallback register(GlobalKey<ScaffoldState> scaffoldKey) {
     assert(!_scaffoldKeys.contains(scaffoldKey));
     _scaffoldKeys.add(scaffoldKey);
@@ -21,11 +32,43 @@ class SnackBarPresenter {
   }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showMessage(
-    String message,
+    String text,
   ) {
     return show(
       SnackBar(
-        content: Text(message),
+        content: Text(text),
+      ),
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showUndo(
+    String text, {
+    @required VoidCallback onUndo,
+    Color undoButtonColor,
+    SnackBarL10n l10n = const SnackBarL10n(),
+  }) {
+    return show(
+      SnackBar(
+        content: Text(text),
+        action: SnackBarAction(
+          textColor: undoButtonColor ?? Theme.of(context).textSelectionColor,
+          label: l10n.undo,
+          onPressed: onUndo,
+        ),
+      ),
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showError(
+    dynamic error, {
+    SnackBarL10n l10n = const SnackBarL10n(),
+  }) {
+    return show(
+      SnackBar(
+        backgroundColor: Theme.of(context).colorScheme.error,
+        content: Text(
+          l10n.localizeError(error),
+        ),
       ),
     );
   }
@@ -33,12 +76,6 @@ class SnackBarPresenter {
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> show(
     SnackBar snackBar,
   ) {
-    if (_scaffoldKeys.isEmpty) {
-      assert(false, '_scaffoldKeys should not be empty');
-      return null;
-    }
-    // Show SnackBar by using last ScaffoldKey
-    final scaffoldState = _scaffoldKeys.last.currentState;
     if (scaffoldState == null) {
       assert(false, 'scaffoldState should not be null');
       return null;
@@ -50,4 +87,11 @@ class SnackBarPresenter {
   void dispose() {
     _scaffoldKeys.clear();
   }
+}
+
+@immutable
+class SnackBarL10n {
+  const SnackBarL10n();
+  String get undo => 'UNDO';
+  String localizeError(dynamic error) => '$error';
 }
