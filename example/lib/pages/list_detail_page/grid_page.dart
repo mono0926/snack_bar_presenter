@@ -62,9 +62,12 @@ class GridPage extends HookWidget {
                                   ),
                                 ),
                               ),
-                              IconButton(
-                                icon: const Icon(Icons.close),
-                                onPressed: () => dataSource.delete(animal),
+                              Positioned(
+                                right: 0,
+                                child: IconButton(
+                                  icon: const Icon(Icons.close),
+                                  onPressed: () => dataSource.delete(animal),
+                                ),
                               ),
                             ],
                           ),
