@@ -9,7 +9,6 @@ dependencies:
     sdk: flutter
   riverpod: ^0.5.0
   simple_logger: ^1.7.0
-  meta:
 dev_dependencies:
   flutter_test:
     sdk: flutter
