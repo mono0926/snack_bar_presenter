@@ -1,0 +1,17 @@
+name: snack_bar_presenter
+description: Provider easy and flexible way to show SnackBar
+version: 0.0.1
+homepage: https://github.com/mono0926/snack_bar_presenter
+environment:
+  sdk: ">=2.5.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  riverpod: ^0.5.0
+  simple_logger: ^1.7.0
+  meta:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: any
+flutter:

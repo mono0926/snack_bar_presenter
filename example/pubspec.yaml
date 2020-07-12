@@ -1,0 +1,36 @@
+name: example
+description: A new Flutter application.
+version: 1.0.0+1
+environment:
+  sdk: ">=2.8.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image:
+  collection:
+  cupertino_icons:
+  disposable_provider:
+  enum_to_string:
+  freezed_annotation:
+  json_annotation:
+  mono_kit:
+  hooks_riverpod:
+  rxdart:
+  vsync_provider:
+  state_notifier:
+  flutter_hooks:
+  recase:
+  snack_bar_presenter:
+    path: ..
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  freezed:
+  json_serializable:
+  pedantic_mono:
+flutter:
+  uses-material-design: true
+#  assets:
+#    - assets/images/
