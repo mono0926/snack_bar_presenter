@@ -47,13 +47,28 @@ class SnackBarPresenter {
     Color undoButtonColor,
     SnackBarL10n l10n = const SnackBarL10n(),
   }) {
+    return showMessageWithAction(
+      text,
+      onAction: onUndo,
+      actionLabel: l10n.undo,
+      actionColor: undoButtonColor ?? Theme.of(context).textSelectionColor,
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
+      showMessageWithAction(
+    String text, {
+    @required VoidCallback onAction,
+    @required String actionLabel,
+    Color actionColor,
+  }) {
     return show(
       SnackBar(
         content: Text(text),
         action: SnackBarAction(
-          textColor: undoButtonColor ?? Theme.of(context).textSelectionColor,
-          label: l10n.undo,
-          onPressed: onUndo,
+          textColor: actionColor ?? Theme.of(context).textSelectionColor,
+          label: actionLabel,
+          onPressed: onAction,
         ),
       ),
     );

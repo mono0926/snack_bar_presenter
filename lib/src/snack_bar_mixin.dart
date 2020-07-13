@@ -42,6 +42,20 @@ mixin SnackBarMixin {
     );
   }
 
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
+      showSnackBarMessageWithAction(
+    String text, {
+    @required VoidCallback onAction,
+    @required String actionLabel,
+    Color actionColor,
+  }) {
+    return snackBarPresenter.showMessageWithAction(
+      text,
+      onAction: onAction,
+      actionLabel: actionLabel,
+    );
+  }
+
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showErrorSnackBar(
     dynamic error, {
     SnackBarL10n l10n = const SnackBarL10n(),
