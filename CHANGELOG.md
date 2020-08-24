@@ -1,6 +1,6 @@
-## 0.1.2-dev
+## 0.1.2
 
-- Update Riverpod 0.6.0-dev
+- Update Riverpod 0.7.0
 
 ## 0.1.1
 

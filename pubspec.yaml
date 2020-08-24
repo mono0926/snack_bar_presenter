@@ -1,13 +1,13 @@
 name: snack_bar_presenter
 description: Provide easy and flexible way to show SnackBar. Simple text, undo, and error style are supported.
-version: 0.1.2-dev
+version: 0.1.2
 homepage: https://github.com/mono0926/snack_bar_presenter
 environment:
   sdk: ">=2.5.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  riverpod: ^0.6.0-dev
+  riverpod: ^0.7.0
   simple_logger: ^1.7.0
 dev_dependencies:
   flutter_test:
