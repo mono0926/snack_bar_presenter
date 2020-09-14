@@ -40,7 +40,7 @@ class GridPage extends HookWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  initialAnimal.read(context).state = animal;
+                                  context.read(initialAnimal).state = animal;
                                   return Navigator.of(context).push<void>(
                                     MaterialPageRoute(
                                       builder: (context) => const DetailPage(),
